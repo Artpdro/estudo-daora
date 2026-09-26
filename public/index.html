@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ULTRA HYPER MEGA AJUDA DO SEU AMIGO ARTHURZINHO</title>
+  <link rel="icon" href="/assets/image.png" />
+  <meta name="theme-color" content="#2f7de1" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <div class="bg-blob blob-1"></div>
+  <div class="bg-blob blob-2"></div>
+  <div class="bg-blob blob-3"></div>
+
+  <header class="topbar">
+    <a class="brand" href="#/">
+      <img src="/assets/image.png" alt="Mascote Arthurzinho" class="brand-img" />
+      <span class="brand-text">AJUDA DO ARTHURZINHO</span>
+    </a>
+    <button class="nav-toggle" id="navToggle" aria-label="Abrir menu">☰</button>
+    <nav class="nav" id="nav">
+      <a href="#/" data-route="home">🏠 Início</a>
+      <a href="#/mcq" data-route="mcq">🔤 Múltipla Escolha</a>
+      <a href="#/abertas" data-route="abertas">✍️ Questões Abertas</a>
+      <a href="#/vf" data-route="vf">⚖️ Verdadeiro ou Falso</a>
+      <a href="#/resumos" data-route="resumos">📚 Resumos</a>
+      <a href="#/progresso" data-route="progresso">📈 Progresso</a>
+    </nav>
+  </header>
+
+  <main id="app" class="container">
+    <!-- As views são renderizadas aqui pelo app.js -->
+  </main>
+
+  <footer class="footer">
+    <p>Feito com <3 e muita cafeína </p>
+  </footer>
+
+  <script src="/app.js"></script>
+</body>
+</html>
