@@ -1,8 +1,5 @@
 /**
  * Configuração central da aplicação.
- *
- * Carrega o arquivo .env localmente, quando ele existir.
- * No Netlify, as variáveis são fornecidas pelo painel de Environment variables.
  */
 
 const fs = require('fs');
@@ -35,7 +32,6 @@ function loadEnvFile() {
       value = value.slice(1, -1);
     }
 
-    // Variáveis do sistema têm prioridade sobre o arquivo .env
     if (!(key in process.env)) {
       process.env[key] = value;
     }
@@ -44,11 +40,12 @@ function loadEnvFile() {
 
 loadEnvFile();
 
-const isNetlify = Boolean(process.env.NETLIFY);
+const runningOnNetlify =
+  process.env.NETLIFY === 'true' ||
+  process.env.NETLIFY === '1' ||
+  Boolean(process.env.AWS_LAMBDA_FUNCTION_NAME);
 
-// No Netlify, /var/task é somente leitura.
-// /tmp é o diretório gravável, porém temporário.
-const DATA_DIR = isNetlify
+const DATA_DIR = runningOnNetlify
   ? path.join(os.tmpdir(), 'estudo-daora-data')
   : path.join(ROOT_DIR, 'data');
 
