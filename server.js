@@ -32,11 +32,22 @@ app.use((err, req, res, next) => {
   res.status(500).json({ error: 'Ops! Algo deu errado. Tente novamente.' });
 });
 
-app.listen(config.PORT, () => {
-  console.log('');
-  console.log('  ULTRA HYPER MEGA AJUDA DO SEU AMIGO ARTHURZINHO');
-  console.log(`  Servidor rodando em: http://localhost:${config.PORT}`);
-  console.log(`  Modelo de IA: ${config.OPENAI_MODEL}`);
-  console.log(`  OpenAI: ${config.OPENAI_API_KEY ? 'configurada' : 'NÃO configurada (correção local ativa — crie o .env com OPENAI_API_KEY)'}`);
-  console.log('');
-});
+if (require.main === module) {
+  app.listen(config.PORT, () => {
+    console.log('');
+    console.log('  ULTRA HYPER MEGA AJUDA DO SEU AMIGO ARTHURZINHO');
+    console.log(`  Servidor rodando em: http://localhost:${config.PORT}` );
+    console.log(`  Modelo de IA: ${config.OPENAI_MODEL}`);
+    console.log(
+      `  OpenAI: ${
+        config.OPENAI_API_KEY
+          ? 'configurada'
+          : 'NÃO configurada — correção local ativa'
+      }`
+    );
+    console.log('');
+  });
+}
+
+module.exports = app;
+
